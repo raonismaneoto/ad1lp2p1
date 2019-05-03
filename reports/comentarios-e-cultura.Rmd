@@ -43,8 +43,8 @@ Considerando essa variável, queremos examinar a relação entre ela e o quão h
     dados %>%
         ggplot(aes(
             x = comentaram_prop,
-            y = PDI
-            size = Internet
+            y = PDI,
+            size = Internet,
             color = usuarios
         )) +
         geom_point(alpha = .75) +
@@ -59,6 +59,66 @@ Faça uma visualização que usa os princípios de eficácia no projeto de visua
 
 Em seguida, faça 5 visualizações que usem as mesmas variáveis e também pontos, mas que sejam **menos eficazes** que a que você escolheu acima. 
 
+```{r}
+    dados %>%
+        ggplot(aes(
+            x = comentaram_prop,
+            y = Internet,
+            size = PDI,
+            color = usuarios
+        )) +
+        geom_point(alpha = .75) +
+        coord_flip()
+```
+
+```{r}
+    dados %>%
+        ggplot(aes(
+            x = comentaram_prop,
+            y = Internet,
+            size = usuarios,
+            color = PDI
+        )) +
+        geom_point(alpha = .75) +
+        coord_flip()
+```
+
+
+```{r}
+    dados %>%
+        ggplot(aes(
+            x = usuarios,
+            y = Internet,
+            size = PDI,
+            color = comentaram_prop
+        )) +
+        geom_point(alpha = .75) +
+        coord_flip()
+```
+
+```{r}
+    dados %>%
+        ggplot(aes(
+            x = Internet,
+            y = usuarios,
+            size = PDI,
+            color = comentaram_prop
+        )) +
+        geom_point(alpha = .75) +
+        coord_flip()
+```
+
+```{r}
+    dados %>%
+        ggplot(aes(
+            x = Internet,
+            y = usuarios,
+            size = comentaram_prop,
+            color = PDI
+        )) +
+        geom_point(alpha = .19) +
+        coord_flip()
+```
 ## Bônus
 
 Inclua o continente dos países (`six_regions`) na visualização.
